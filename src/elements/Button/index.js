@@ -21,8 +21,8 @@ export default function Button(props) {
         {props.isLoading ? (
           // react Fragment untuk membungkus
           <>
-            <span class="spanner-border spinner-border-sm mx-5"></span>
-            <span class="sr-only">Loading...</span>
+            <span className="spanner-border spinner-border-sm mx-5"></span>
+            <span className="sr-only">Loading...</span>
           </>
         ) : (
           props.children
@@ -32,16 +32,18 @@ export default function Button(props) {
   }
 
   if (props.type === "link") {
-    if (props.isExternl) {
-      <a
-        href="props.href"
-        className={className.join(" ")}
-        style={props.style}
-        target={props.target === "_blank" ? "_blank" : undefined}
-        rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
-      >
-        {props.children}
-      </a>;
+    if (props.isExternal) {
+      return (
+        <a
+          href={props.href}
+          className={className.join(" ")}
+          style={props.style}
+          target={props.target === "_blank" ? "_blank" : undefined}
+          rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
+        >
+          {props.children}
+        </a>
+      );
     } else {
       return (
         <Link
@@ -74,7 +76,6 @@ Button.propTypes = {
   className: propTypes.string,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,
-  target: propTypes.bool,
   isSmall: propTypes.bool,
   isLarge: propTypes.bool,
   isBlock: propTypes.bool,
