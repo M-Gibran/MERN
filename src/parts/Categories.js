@@ -9,7 +9,7 @@ export default function Categories({ data }) {
         <div className="container-grid">
           {category.items.length === 0 ? (
             <div className="row">
-              <div class="col-auto align-items-center">
+              <div className="col-auto align-items-center">
                 There is no property at this category
               </div>
             </div>
